@@ -5,7 +5,7 @@ import ChatSideBar from "../components/chatParts/ChatSideBar"
 import ChatMessageArea from "../components/chatParts/ChatMessageArea"
 import MessageSendBox from "../components/chatParts/MessageSendBox"
 
-export default function chat() {
+export default function Chat() {
 
   //サイドバーに表示するチャットしたことあるユーザー一覧
   const [chatUser, setChatUser] = useState([])

@@ -3,10 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import banner from "../../public/icon.png";
 import LayoutButton from "./LayoutButton";
-import Cookie from "universal-cookie";
 import { useRouter } from "next/router";
 
-const cookie = new Cookie();
 //childrenはインポート先でラップしてる全てのコンテンツが入ってくる
 //titleはLayoutが呼び出された時にページから特定のタイトルを受け取る
 export default function Layout({ children, title }) {

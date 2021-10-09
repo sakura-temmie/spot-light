@@ -110,6 +110,99 @@ const Edit = () => {
     }
   };
 
+  const handleImage = (e) => {
+    const accessToken = localStorage.getItem("access_token");
+    const formData = new FormData();
+    formData.append("photo", e.target.files[0]);
+    formData.append("token", accessToken);
+    setPhoto(formData);
+  };
+
+  const updatePhoto = async (e) => {
+    e.preventDefault();
+
+    const param = {
+      method: "POST",
+      body: photo,
+    };
+    fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}me/theater/photo`, param)
+      .then((res) => {
+        if (res.status === 400) {
+          throw "認証が失敗しました";
+        } else if (res.ok) {
+          return res.json();
+        }
+      })
+      .then((data) => {
+        console.log(JSON.stringify(data));
+      });
+    // const accessToken = await localStorage.getItem("access_token");
+    // const options = {
+    //   method: "POST",
+    //   body: photo,
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //     Authorization: `Bearer ${accessToken}`,
+    //   },
+    // };
+    // //コンテンツタイプヘッダを明示的に削除
+    // delete options.headers["Content-Type"];
+    // //API通信
+    // await fetch(
+    //   `${process.env.NEXT_PUBLIC_RESTAPI_URL}APIのエンドポイント`,
+    //   options
+    // )
+    //   .then((res) => {
+    //     if (res.status === 400) {
+    //       throw "認証が失敗しました";
+    //     } else if (res.ok) {
+    //       return res.json();
+    //     }
+    //   })
+    //   .then((data) => {
+    //     console.log(JSON.stringify(data));
+    //   });
+
+    // try {
+
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     // "Content-Type":
+    //     //   "multipart/form-data; boundary=<calculated when request is sent>",
+    //     // "Content-Length": "<calculated when request is sent>",
+    //     // Host: "<calculated when request is sent>",
+    //     // Accept: "*/*",
+    //     // "Accept-Encoding": "gzip, deflate, br",
+    //     // Connection: "keep-alive",
+    //   },
+    // })
+    // } catch (err) {
+    //   alert(err);
+    // }
+    // e.preventDefault();
+    // // try {
+    // const accessToken = await localStorage.getItem("access_token");
+    // await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}me/theater/photo`, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     token: accessToken,
+    //   }),
+    //   header: {
+    //     Accept: "application/json",
+    //     Authorization: `Bearer ${accessToken}`,
+    //   },
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(JSON.stringify(data));
+    //   });
+  };
+  // })
+  // };
+
   const imgPath = "https://theater-check.s3.ap-northeast-1.amazonaws.com/";
   const truePath = imgPath + theater.photo;
   const image = theaterData.main_photo == null ? noImage : truePath;
@@ -155,6 +248,7 @@ const Edit = () => {
                 />
               </div>
               <div className="w-1/2 relative">
+                {/* <input type="file" id="photo" /> */}
                 <Image
                   className="object-contain h-48 w-full"
                   width={600}
@@ -176,7 +270,13 @@ const Edit = () => {
                   </svg>
                   <span>　画像を追加する</span>
                 </button>
-                <input hidden ref={inputRef} type="file" />
+                <input
+                  hidden
+                  name="photo"
+                  ref={inputRef}
+                  type="file"
+                  onChange={handleImage}
+                />
               </div>
             </div>
             <div className="flex space-x-4 justify-center">
@@ -218,6 +318,14 @@ const Edit = () => {
                 保存
               </button>
             </div>
+          </form>
+          <form onSubmit={updatePhoto}>
+            <button
+              type="submit"
+              className="group relative flex justify-center py-2 px-8 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 m-auto mt-6"
+            >
+              画像を更新する
+            </button>
           </form>
         </div>
       </Layout>

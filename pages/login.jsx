@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+// import Cookie from "universal-cookie";
 import Layout from "../components/layoutParts/LayoutNotLogin";
 import Logo from "../public/icon.png";
 import Image from "next/image";
 import Link from "next/link";
 
+//クッキーのインスタンスを作る
+// const cookie = new Cookie();
 
 export default function Register() {
   const router = useRouter();

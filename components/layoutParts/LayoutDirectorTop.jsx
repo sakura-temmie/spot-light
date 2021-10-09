@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Cookie from "universal-cookie";
 import LayoutDirectorTopSideBar from "./LayoutDirectorTopSideBar";
 import LayoutDirectorTopCardArea from "./LayoutDirectorTopCardArea";
 import Layout from "../../components/layoutParts/Layout"
@@ -17,6 +18,7 @@ export default function LayoutDirectorTop() {
     //クッキーの取得
     try {
       //クッキーの取得
+      // const accessToken = await new Cookie().get("access_token");
       const accessToken = await localStorage.getItem("access_token");
 
       const path = "theaters";

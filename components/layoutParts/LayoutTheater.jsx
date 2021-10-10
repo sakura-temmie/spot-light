@@ -22,7 +22,7 @@ export default function LayoutTheater({ children, title }) {
           <div className="flex items-center h-24 items-center text-center justify-center">
             {/* <div className="container flex items-center"> */}
             <Image src={banner} alt="main Image" width={100} height={100} />
-            <Link href="/" passHref>
+            <Link href="/top" passHref>
               <p className="text-2xl cursor-pointer pl-2">Spot Light</p>
             </Link>
             <div className="ml-auto flex ">

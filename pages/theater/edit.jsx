@@ -1,6 +1,4 @@
 import Layout from "../../components/layoutParts/LayoutTheater";
-import EditTheaterTop from "../../components/editParts/EditTheaterTop";
-import EditTheaterDetail from "../../components/editParts/EditTheaterDetail";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import noImage from "../../public/imgPlaceholder.png";

@@ -1,11 +1,8 @@
 import Layout from "../../components/layoutParts/Layout";
-import EditButton from "../../components/editParts/EditButton";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import noImage from "../../public/imgPlaceholder.png";
 import { useRouter } from "next/router";
-// import { render } from "@headlessui/react/dist/utils/render";
-import img from "../../public/banner.jpg";
 
 const Profile_edit = () => {
   const [directorData, setDirectorData] = useState([]);

@@ -1,11 +1,6 @@
 import LayoutTheater from "../../components/layoutParts/LayoutTheater";
-import ProfileTopParts from "../../components/profileParts/ProfileTopParts";
-import ProfileMiddleParts from "../../components/profileParts/ProfileMiddleParts";
-import ProfileResultsArea from "../../components/profileParts/ProfileResultsArea";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import ProfileButton from "../../components/profileParts/ProfileButton";
-import Link from "next/link";
 import ProfileTheaterTop from "../../components/profileParts/ProfileTheaterTop";
 import ProfileTheaterDetail from "../../components/profileParts/ProfileTheaterDetail";
 import noImage from "../../public/imgPlaceholder.png";

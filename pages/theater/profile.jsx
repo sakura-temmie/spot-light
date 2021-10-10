@@ -6,7 +6,7 @@ import ProfileTheaterDetail from "../../components/profileParts/ProfileTheaterDe
 import noImage from "../../public/imgPlaceholder.png";
 
 // post：getStaticPropsから取得したデータ
-export default function Test({ post }) {
+export default function Test() {
   const [theaterData, setTheaterData] = useState([]);
   const [theaterDetail, setTheaterDetail] = useState([]);
 

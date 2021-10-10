@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Cookie from "universal-cookie";
 import Layout from "../components/layoutParts/Layout"
 import ChatSideBar from "../components/chatParts/ChatSideBar"
 import ChatMessageArea from "../components/chatParts/ChatMessageArea"

@@ -3,7 +3,6 @@ import ProfileTopParts from "../../components/profileParts/ProfileTopParts";
 import ProfileMiddleParts from "../../components/profileParts/ProfileMiddleParts";
 import ProfileResultsArea from "../../components/profileParts/ProfileResultsArea";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import ProfileButton from "../../components/profileParts/ProfileButton";
 import noImage from "../../public/imgPlaceholder.png";
 

@@ -1,10 +1,6 @@
 import { useState, useEffect, useContext } from "react";
-import Layout from "../components/layoutParts/Layout";
 import LayoutDirectorTop from "../components/layoutParts/LayoutDirectorTop";
 import LayoutTheaterTop from "../components/layoutParts/LayoutTheaterTop";
-import Cookie from "universal-cookie";
-import Link from "next/link";
-import LayoutTheater from "../components/layoutParts/LayoutTheater";
 
 
 export default function Home() {

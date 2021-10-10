@@ -40,6 +40,7 @@ export default function Test({ post }) {
         .then((data) => {
           setTheaterData(data.data);
           setTheaterDetail(data.data.theater);
+          console.log(data.data);
         });
     } catch (err) {
       alert(err);
@@ -55,10 +56,11 @@ export default function Test({ post }) {
     address: `${theaterDetail.address}`,
     schedule: `${theaterDetail.free_schedule}`,
     detail: `${theaterDetail.information}`,
+    photo: `${theaterData.main_photo}`,
   };
   const imgPath = "https://theater-check.s3.ap-northeast-1.amazonaws.com/";
   const truePath = imgPath + theater.photo;
-  const image = theater.main_photo == null ? noImage : truePath;
+  const image = theaterData.main_photo == null ? noImage : truePath;
   return (
     <>
       <Layout title={"劇場詳細"}>

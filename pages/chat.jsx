@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import Cookie from "universal-cookie";
 import Layout from "../components/layoutParts/Layout"
 import ChatSideBar from "../components/chatParts/ChatSideBar"
 import ChatMessageArea from "../components/chatParts/ChatMessageArea"
 import MessageSendBox from "../components/chatParts/MessageSendBox"
 
-export default function Chat() {
+
+export default function chat() {
 
   //サイドバーに表示するチャットしたことあるユーザー一覧
   const [chatUser, setChatUser] = useState([])
@@ -120,13 +122,12 @@ export default function Chat() {
   }
 
 
-
   //chatデータを送る
   const sendChatData = async (message) => {
-    if (message != "") {
+    if (message != "" && reciverID != "") {
       //アクセストークンの取得
-      console.log(`myID:${myID}`)
-      console.log(`reciverID:${reciverID}`)
+      // console.log(`myID:${myID}`)
+      // console.log(`reciverID:${reciverID}`)
       const accessToken = await localStorage.getItem("access_token");
       try {
         await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}messages/create`, {
@@ -155,7 +156,7 @@ export default function Chat() {
         return
       }
     } else {
-      alert("メッセージを入力して下さい")
+      alert("メッセージを入力または送信者を選択して下さい")
     }
   }
 

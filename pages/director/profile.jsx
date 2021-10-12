@@ -43,6 +43,8 @@ const Profile = () => {
           setDirectorData(data.data);
           setDirectorDetail(data.data.director);
           setDirectorPerformance(data.data.performances);
+          console.log(JSON.stringify(data));
+          console.log(data);
         });
     } catch (err) {
       alert(err);
@@ -52,7 +54,7 @@ const Profile = () => {
 
   const director = {
     name: `${directorData.name}`,
-    profile: `${directorData.name}`,
+    profile: `${directorDetail.about_me}`,
     photo: `${directorData.main_photo}`,
     cost: `${directorDetail.desired_price}`,
     schedule: `${directorDetail.free_schedule}`,
@@ -70,9 +72,6 @@ const Profile = () => {
   const selectChatUser = async (userId) => {
     const accessToken = await localStorage.getItem("access_token");
 
-    //クッキーの取得
-    // const accessToken = await new Cookie().get("access_token");
-    // await setAccessToken(new Cookie().get("access_token"))
     try {
       await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}messages/open`, {
         method: "POST",
@@ -93,7 +92,7 @@ const Profile = () => {
           }
         })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
         });
     } catch (err) {
       alert(err);
@@ -104,13 +103,6 @@ const Profile = () => {
   return (
     <Layout title={"演出家詳細"}>
       <div style={{ width: "960px" }}>
-        {/* <div>
-          <ProfileButton
-            title={"個別相談する"}
-            path={"/chat"}
-            action={selectChatUser}
-          />
-        </div> */}
         <ProfileTopParts
           name={director.name}
           profile={director.profile}
@@ -119,6 +111,12 @@ const Profile = () => {
           img={image}
           action={selectChatUser(pId)}
         />
+          <div className="flex flex-col items-center w-100% mx-3 py-2  text-center text-base">
+            <p className="w-full border-b pt-4">プロフィール</p>
+            <div className="w-full m-3 p-5 bg-white text-base h-full">
+              {director.profile}
+            </div>
+        </div>
         <ProfileMiddleParts />
         <ProfileResultsArea resultApi={directorPerformance} />
       </div>

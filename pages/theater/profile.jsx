@@ -41,7 +41,7 @@ export default function Test({ post }) {
         .then((data) => {
           setTheaterData(data.data);
           setTheaterDetail(data.data.theater);
-          console.log(data.data);
+          // console.log(JSON.stringify(data.data));
         });
     } catch (err) {
       alert(err);
@@ -90,7 +90,7 @@ export default function Test({ post }) {
           }
         })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
         });
     } catch (err) {
       alert(err);

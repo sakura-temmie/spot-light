@@ -1,7 +1,7 @@
 import LayoutTheater from "../../components/layoutParts/LayoutTheater";
 import { useState, useEffect } from "react";
 import ProfileButton from "../../components/profileParts/ProfileButton";
-import ProfileTheaterTop from "../../components/profileParts/ProfileTheaterTop";
+import ProfileTheaterTop from "../../components/profileParts/MyProfileTheaterTop";
 import ProfileTheaterDetail from "../../components/profileParts/ProfileTheaterDetail";
 import noImage from "../../public/imgPlaceholder.png";
 

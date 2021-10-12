@@ -65,6 +65,40 @@ const Profile = () => {
   const truePath = imgPath + director.photo;
   const image = directorData.main_photo == null ? noImage : truePath;
 
+  //チャットデータの送信処理を行う
+  const selectChatUser = async (userId) => {
+    const accessToken = await localStorage.getItem("access_token");
+
+    //クッキーの取得
+    // const accessToken = await new Cookie().get("access_token");
+    // await setAccessToken(new Cookie().get("access_token"))
+    try {
+      await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}messages/open`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: accessToken,
+          receiver: userId,
+        }),
+      })
+        .then((res) => {
+          if (res.status === 400) {
+            throw "authentication failed";
+          } else if (res.ok) {
+            return res.json();
+          }
+        })
+        .then((data) => {
+          console.log(data);
+        });
+    } catch (err) {
+      alert(err);
+      return;
+    }
+  };
 
   return (
     <Layout title={"演出家詳細"}>
@@ -75,6 +109,7 @@ const Profile = () => {
           cost={director.cost}
           schedule={director.schedule}
           img={image}
+          action={selectChatUser(pId)}
         />
         <ProfileMiddleParts />
         <ProfileResultsArea resultApi={directorPerformance} />

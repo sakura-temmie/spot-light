@@ -1,4 +1,4 @@
-import Layout from "../../components/layoutParts/Layout";
+import Layout from "../../components/layoutParts/LayoutTheater";
 import ProfileTopParts from "../../components/profileParts/ProfileTopParts";
 import ProfileMiddleParts from "../../components/profileParts/ProfileMiddleParts";
 import ProfileResultsArea from "../../components/profileParts/ProfileResultsArea";

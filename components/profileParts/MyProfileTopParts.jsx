@@ -1,7 +1,7 @@
 import ProfileImage from "./ProfileImage";
 import ProfileButton from "./ProfileButton";
 
-const ProfileTopParts = ({ name, profile, img, cost, schedule, action }) => {
+const MyProfileTopParts = ({ name, profile, img, cost, schedule, action }) => {
   return (
     <>
       <div className="flex flex-col space-x-4 justify-center">
@@ -12,15 +12,14 @@ const ProfileTopParts = ({ name, profile, img, cost, schedule, action }) => {
           </div>
 
           {/* こちらのボタンをご利用ください */}
-          <div>
+          {/* <div>
             <ProfileButton
               title={"個別相談する"}
               path={"/chat"}
               action={action}
             />
-          </div>
+          </div> */}
           {/* ーーーーーーーーー */}
-
         </div>
         <ProfileImage imgUrl={img} />
       </div>
@@ -36,4 +35,4 @@ const ProfileTopParts = ({ name, profile, img, cost, schedule, action }) => {
   );
 };
 
-export default ProfileTopParts;
+export default MyProfileTopParts;

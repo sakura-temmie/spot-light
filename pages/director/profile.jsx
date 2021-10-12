@@ -5,6 +5,7 @@ import ProfileResultsArea from "../../components/profileParts/ProfileResultsArea
 import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import noImage from "../../public/imgPlaceholder.png";
+import ProfileButton from "../../components/profileParts/ProfileButton";
 
 const Profile = () => {
   const [directorData, setDirectorData] = useState([]);
@@ -103,6 +104,13 @@ const Profile = () => {
   return (
     <Layout title={"演出家詳細"}>
       <div style={{ width: "960px" }}>
+        {/* <div>
+          <ProfileButton
+            title={"個別相談する"}
+            path={"/chat"}
+            action={selectChatUser}
+          />
+        </div> */}
         <ProfileTopParts
           name={director.name}
           profile={director.profile}

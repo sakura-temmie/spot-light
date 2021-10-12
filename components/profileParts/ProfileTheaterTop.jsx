@@ -11,6 +11,7 @@ const ProfileTheatreTop = ({
   address,
   schedule,
   img,
+  action
 }) => {
   return (
     <>
@@ -21,7 +22,15 @@ const ProfileTheatreTop = ({
             <p className="text-4xl ml-10 mb-10 mt-3">{title}</p>
           </div>
           <div className="">
-            {/* <ProfileButton title={"編集する"} path={"theater/edit"} /> */}
+            {/* こちらのボタンをご利用ください */}
+            <div>
+              <ProfileButton
+                title={"個別相談する"}
+                path={"/chat"}
+                action={action}
+              />
+            </div>
+            {/* ーーーーーーーーー */}
           </div>
         </div>
         <div className="flex items-center justify-between">
@@ -43,7 +52,7 @@ const ProfileTheatreTop = ({
             住所　【　{address}　】　
           </div>
           <div className="w-100% m-3 p-2 border-b text-center text-base">
-          {schedule} ヶ月以降 対応可能
+            {schedule} ヶ月以降 対応可能
           </div>
         </div>
       </div>

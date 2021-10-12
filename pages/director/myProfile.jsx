@@ -1,5 +1,5 @@
 import Layout from "../../components/layoutParts/Layout";
-import ProfileTopParts from "../../components/profileParts/ProfileTopParts";
+import ProfileTopParts from "../../components/profileParts/MyProfileTopParts";
 import ProfileMiddleParts from "../../components/profileParts/ProfileMiddleParts";
 import ProfileResultsArea from "../../components/profileParts/ProfileResultsArea";
 import { useState, useEffect } from "react";
@@ -11,16 +11,6 @@ const MyProfile = () => {
   const [directorDetail, setDirectorDetail] = useState([]);
   const [directorPerformance, setDirectorPerformance] = useState([]);
 
-  // const router = useRouter();
-  //   const passUserId = () => {
-  //     router.push({
-  //       pathname: "director/profile",
-  //       query: { id: setDirectorData.id },
-  //     });
-  //   };
-  // const router = useRouter();
-  // const pId = router.query.id;
-  // //初回のみ実行
   useEffect(() => {
     if (typeof window !== "undefined") {
       getDirectorData();
@@ -65,9 +55,6 @@ const MyProfile = () => {
     schedule: `${directorDetail.free_schedule}`,
   };
 
-  // const results = {
-  //   title: `${directorPerformance.name}`,
-  // };
 
   const imgPath = "https://theater-check.s3.ap-northeast-1.amazonaws.com/";
   const truePath = imgPath + director.photo;

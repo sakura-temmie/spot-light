@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import banner from "../../public/icon.png";
-import LayoutButton from "./LayoutButton";
+import banner from "../../public/spotlightLogo1.png";
 
 //childrenはインポート先でラップしてる全てのコンテンツが入ってくる
 //titleはLayoutが呼び出された時にページから特定のタイトルを受け取る
@@ -18,9 +17,8 @@ export default function Layout({ children, title }) {
         <nav>
           <div className="flex items-center h-24 items-center text-center justify-center">
             {/* <div className="container flex items-center"> */}
-            <Image src={banner} alt="main Image" width={100} height={100} />
             <Link href="/" passHref>
-              <p className="text-2xl cursor-pointer pl-2">Spot Light</p>
+            <Image src={banner} alt="main Image" width={150} height={100} />
             </Link>
             <div className="ml-auto flex ">
               {/* <LayoutButton path="/top" title="演出家を探す" /> */}
@@ -30,7 +28,7 @@ export default function Layout({ children, title }) {
           </div>
         </nav>
       </header>
-      <main className="flex flex-col flex-grow items-center bg-gray-100 pt-20 px-3">
+      <main className="flex flex-col flex-grow items-center bg-gray-100 py-20 px-3">
         {children}
       </main>
       <footer className="bg-white">

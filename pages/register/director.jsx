@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Layout from "../../components/layoutParts/Layout";
-import Logo from "../../public/icon.png";
+import Layout from "../../components/layoutParts/LayoutNotLogin";
+import Logo from "../../public/spotlightLogo1.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -50,7 +50,7 @@ export default function Register() {
     <Layout title="演出家新規登録">
       <div className="max-w-md w-full space-y-8 bg-white rounded p-10">
         <div className="flex flex-col items-center">
-          <Image src={Logo} alt="Logo" width="100" height="100" />
+          <Image src={Logo} alt="Logo" width="150" height="105" />
           <h2 className="mt-3 text-center text-3xl font-extrabold text-gray">
             新規登録
           </h2>

@@ -23,8 +23,8 @@ export default function Layout({ children, title }) {
         <nav>
           <div className="flex items-center h-24 items-center text-center justify-center">
             {/* <div className="container flex items-center"> */}
-            <Image src={banner} alt="main Image" width={150} height={100} />
             <Link href="/top" passHref>
+            <Image src={banner} alt="main Image" width={150} height={100} />
             </Link>
             <div className="ml-auto flex ">
               <LayoutButton path="/top" title="劇場を探す" />

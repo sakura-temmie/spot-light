@@ -35,7 +35,6 @@ const MyProfile = () => {
           }
         })
         .then((data) => {
-          localStorage.setItem("theater_data", JSON.stringify(data.data));
           setTheaterData(data.data);
           setTheaterDetail(data.data.theater);
         });
@@ -79,21 +78,6 @@ const MyProfile = () => {
         />
         <ProfileTheaterDetail detail={theater.info} />
       </div>
-      {/* <div style={{ width: "960px" }}>
-        <ProfileButton path="/theater/edit" title="編集する" />
-        {/* <ProfileTopParts
-          name={theater.name}
-          profile={theater.profile}
-          cost={theater.cost}
-          schedule={theater.schedule}
-          img={image}
-        /> */}
-      {/* <div className="flex justify-between px-3">
-          <div className="flex w-1/2 justify-end">
-            <ProfileMiddleParts />
-          </div>
-        </div>
-      </div>  */}
     </LayoutTheater>
   );
 };

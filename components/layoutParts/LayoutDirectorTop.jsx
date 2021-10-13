@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Cookie from "universal-cookie";
 import LayoutDirectorTopSideBar from "./LayoutDirectorTopSideBar";
 import LayoutDirectorTopCardArea from "./LayoutDirectorTopCardArea";
 import Layout from "../../components/layoutParts/Layout"

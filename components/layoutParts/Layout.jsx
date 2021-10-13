@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import banner from "../../public/icon.png";
+import banner from "../../public/spotlightLogo1.png";
 import LayoutButton from "./LayoutButton";
 import { useRouter } from "next/router";
 
@@ -23,9 +23,8 @@ export default function Layout({ children, title }) {
         <nav>
           <div className="flex items-center h-24 items-center text-center justify-center">
             {/* <div className="container flex items-center"> */}
-            <Image src={banner} alt="main Image" width={100} height={100} />
+            <Image src={banner} alt="main Image" width={150} height={100} />
             <Link href="/top" passHref>
-              <p className="text-2xl cursor-pointer pl-2">Spot Light</p>
             </Link>
             <div className="ml-auto flex ">
               <LayoutButton path="/top" title="劇場を探す" />

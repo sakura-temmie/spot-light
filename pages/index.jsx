@@ -6,6 +6,7 @@ import Logo from "../public/spotlightLogo2.png";
 import BottomImg from "../public/bottomImg.png";
 import cssClass from "./index.module.css";
 import PointSentence from "../components/topParts/PointSentence";
+import Title from "../components/topParts/Title";
 
 export default function Index() {
   return (
@@ -25,17 +26,7 @@ export default function Index() {
         <div className="absolute right-10">
           <Image src={Logo} alt="logo" width={300} height={200} />
         </div>
-        <div className="flex my-32">
-          <p className="text-4xl">S</p>
-          <p className="text-4xl ml-12">p</p>
-          <p className="text-4xl ml-12">o</p>
-          <p className="text-4xl ml-12">t</p>
-          <p className="text-4xl ml-12">L</p>
-          <p className="text-4xl ml-12">i</p>
-          <p className="text-4xl ml-12">g</p>
-          <p className="text-4xl ml-12">h</p>
-          <p className="text-4xl ml-12">t</p>
-        </div>
+        <Title />
         <div className="flex flex-col font-serif tracking-widest items-center">
           <p className="text-gray-700 text-opacity-75">
             作品をもっと作りやすく

@@ -52,6 +52,7 @@ const MyProfile = () => {
     profile: `${directorData.name}`,
     photo: `${directorData.main_photo}`,
     cost: `${directorDetail.desired_price}`,
+    capacity: `${directorDetail.desired_capacity}`,
     schedule: `${directorDetail.free_schedule}`,
   };
 
@@ -70,6 +71,7 @@ const MyProfile = () => {
           cost={director.cost}
           schedule={director.schedule}
           img={image}
+          capacity={director.capacity}
         />
         <div className="flex justify-between px-3">
           <div className="flex w-1/2 justify-end">

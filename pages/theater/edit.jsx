@@ -2,11 +2,13 @@ import Layout from "../../components/layoutParts/LayoutTheater";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import noImage from "../../public/imgPlaceholder.png";
+import { useRouter } from "next/router";
 
 const Edit = () => {
   const inputRef = useRef(null);
   const [theaterData, setTheaterData] = useState([]);
   const [theaterDetail, setTheaterDetail] = useState([]);
+  const router = useRouter();
 
   const [name, setName] = useState("");
   const [capacity, setCapacity] = useState("");
@@ -100,7 +102,8 @@ const Edit = () => {
           }
         })
         .then((data) => {
-          localStorage.setItem("the_post", JSON.stringify(data));
+          router.push("/theater/myProfile");
+          // localStorage.setItem("the_post", JSON.stringify(data));
         });
       // router.push("/top");
     } catch (err) {
@@ -132,74 +135,9 @@ const Edit = () => {
         }
       })
       .then((data) => {
-        console.log(JSON.stringify(data));
+        router.push("/theater/myProfile");
       });
-    // const accessToken = await localStorage.getItem("access_token");
-    // const options = {
-    //   method: "POST",
-    //   body: photo,
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //     Authorization: `Bearer ${accessToken}`,
-    //   },
-    // };
-    // //コンテンツタイプヘッダを明示的に削除
-    // delete options.headers["Content-Type"];
-    // //API通信
-    // await fetch(
-    //   `${process.env.NEXT_PUBLIC_RESTAPI_URL}APIのエンドポイント`,
-    //   options
-    // )
-    //   .then((res) => {
-    //     if (res.status === 400) {
-    //       throw "認証が失敗しました";
-    //     } else if (res.ok) {
-    //       return res.json();
-    //     }
-    //   })
-    //   .then((data) => {
-    //     console.log(JSON.stringify(data));
-    //   });
-
-    // try {
-
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     // "Content-Type":
-    //     //   "multipart/form-data; boundary=<calculated when request is sent>",
-    //     // "Content-Length": "<calculated when request is sent>",
-    //     // Host: "<calculated when request is sent>",
-    //     // Accept: "*/*",
-    //     // "Accept-Encoding": "gzip, deflate, br",
-    //     // Connection: "keep-alive",
-    //   },
-    // })
-    // } catch (err) {
-    //   alert(err);
-    // }
-    // e.preventDefault();
-    // // try {
-    // const accessToken = await localStorage.getItem("access_token");
-    // await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}me/theater/photo`, {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     token: accessToken,
-    //   }),
-    //   header: {
-    //     Accept: "application/json",
-    //     Authorization: `Bearer ${accessToken}`,
-    //   },
-    // })
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //     console.log(JSON.stringify(data));
-    //   });
   };
-  // })
-  // };
 
   const imgPath = "https://theater-check.s3.ap-northeast-1.amazonaws.com/";
   const truePath = imgPath + theater.photo;

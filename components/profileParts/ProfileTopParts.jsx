@@ -1,7 +1,7 @@
 import ProfileImage from "./ProfileImage";
 import ProfileButton from "./ProfileButton";
 
-const ProfileTopParts = ({ name, profile, img, cost, schedule, action }) => {
+const ProfileTopParts = ({ name, profile, img, cost, schedule, action, capacity }) => {
   return (
     <>
       <div className="flex flex-col space-x-4 justify-center">
@@ -29,7 +29,10 @@ const ProfileTopParts = ({ name, profile, img, cost, schedule, action }) => {
           希望利用額（１週間）{cost}　万円
         </div>
         <div className="w-100% m-3 p-2 border-b text-center text-base">
-          空きスケジュール　{schedule}
+          希望収容人数　{capacity}　人
+        </div>
+        <div className="w-100% m-3 p-2 border-b text-center text-base">
+          空きスケジュール　{schedule}　ヶ月以降
         </div>
       </div>
     </>

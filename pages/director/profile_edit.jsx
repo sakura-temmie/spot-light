@@ -14,12 +14,14 @@ const Profile_edit = () => {
     profile: `${directorDetail.about_me}`,
     photo: `${directorData.main_photo}`,
     cost: `${directorDetail.desired_price}`,
+    capacity: `${directorDetail.desired_capacity}`,
     schedule: `${directorDetail.free_schedule}`,
   };
 
   const [name, setName] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [desiredPrice, setDesiredPrice] = useState("");
+  const [desiredCapacity, setDesiredCapacity] = useState("");
   const [photo, setPhoto] = useState(null);
   const [freeSchedule, setFreeSchedule] = useState("");
   const inputRef = useRef(null);
@@ -48,7 +50,7 @@ const Profile_edit = () => {
           }
         })
         .then((data) => {
-          localStorage.setItem("t_data-2", JSON.stringify(data));
+          // localStorage.setItem("t_data-2", JSON.stringify(data));
           setDirectorData(data.data);
           setDirectorDetail(data.data.director);
         });
@@ -75,6 +77,7 @@ const Profile_edit = () => {
           name: name,
           about_me: aboutMe,
           desired_price: desiredPrice,
+          desired_capacity: desiredCapacity,
           // photo: photo,
           free_schedule: freeSchedule,
         }),
@@ -82,13 +85,17 @@ const Profile_edit = () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }).then((res) => {
-        if (res.status === 400) {
-          throw "認証が失敗しました";
-        } else if (res.ok) {
-          return res.json();
-        }
-      });
+      })
+        .then((res) => {
+          if (res.status === 400) {
+            throw "認証が失敗しました";
+          } else if (res.ok) {
+            return res.json();
+          }
+        })
+        .then((data) => {
+          router.push("/director/myProfile");
+        });
     } catch (err) {
       alert(err);
     }
@@ -190,7 +197,7 @@ const Profile_edit = () => {
               />
             </div>
           </div>
-          <div className="flex space-x-4 ">
+          <div className="flex space-x-4 mt-6">
             <div>
               <p>希望利用額　　　（万円）</p>
               <input
@@ -214,6 +221,19 @@ const Profile_edit = () => {
                 placeholder="空きスケジュール"
                 onChange={(e) => {
                   setFreeSchedule(e.target.value);
+                }}
+              />
+            </div>
+            <div className="pl-6">
+              <p>希望収容人数　　　（人）</p>
+              <input
+                className="w-full m-3 p-2 shadow-md text-center text-base"
+                type="text"
+                defaultValue={""}
+                // defaultValue={director.schedule}
+                placeholder="希望収容人数"
+                onChange={(e) => {
+                  setDesiredCapacity(e.target.value);
                 }}
               />
             </div>

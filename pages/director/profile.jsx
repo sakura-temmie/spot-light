@@ -2,10 +2,9 @@ import Layout from "../../components/layoutParts/LayoutTheater";
 import ProfileTopParts from "../../components/profileParts/ProfileTopParts";
 import ProfileMiddleParts from "../../components/profileParts/ProfileMiddleParts";
 import ProfileResultsArea from "../../components/profileParts/ProfileResultsArea";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import noImage from "../../public/imgPlaceholder.png";
-import ProfileButton from "../../components/profileParts/ProfileButton";
 
 const Profile = () => {
   const [directorData, setDirectorData] = useState([]);
@@ -57,6 +56,7 @@ const Profile = () => {
     profile: `${directorDetail.about_me}`,
     photo: `${directorData.main_photo}`,
     cost: `${directorDetail.desired_price}`,
+    capacity: `${directorDetail.desired_capacity}`,
     schedule: `${directorDetail.free_schedule}`,
   };
 

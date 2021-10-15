@@ -19,7 +19,7 @@ export default function LayoutSideBarSearchBox({
   action2
 }) {
   {/* タイトルによってinputタグの幅を変更するための変数 */}
-  const inputClassName = title === "使用料" ? "w-9/12 text-right" : "w-10/12 text-right"
+  const inputClassName = title === "使用料" || "希望利用額" ? "w-9/12 text-right" : "w-10/12 text-right"
   return (
     <>
       {/*  大枠のタイトルを受け取る  */}

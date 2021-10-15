@@ -8,6 +8,10 @@ import LayoutSideBarSelectBox from "./LayoutSideBarSelectBox";
 export default function LayoutTheaterTopSideBar({ action }) {
 
   const [date, setDate] = useState("")
+  const [minMoney, setMinMoney] = useState("")
+  const [maxMoney, setMaxMoney] = useState("")
+  const [minCapacity,setMinCapacity] = useState("")
+  const [maxCapacity,setMaxCapacity] = useState("")
 
   return (
     <aside className="w-72">
@@ -38,9 +42,35 @@ export default function LayoutTheaterTopSideBar({ action }) {
               optionData={[]}
               action={setDate}
             />
+        </div>
+        <div className="mb-2">
+            <LayoutSideBarSearchBox
+              title="希望利用額"
+              inputType="number"
+              name1="minCost"
+              subTitle1="下限"
+              name2="maxCost"
+              subTitle2="上限"
+              unit="万円"
+              action1={setMinMoney}
+              action2={setMaxMoney}
+            />
+          </div>
+          <div className="mb-2">
+            <LayoutSideBarSearchBox
+              title="希望収容人数"
+              inputType="number"
+              name1="minCapacity"
+              subTitle1="下限"
+              name2="maxCapacity"
+              subTitle2="上限"
+              unit="人"
+              action1={setMinCapacity}
+              action2={setMaxCapacity}
+            />
           </div>
           <div className="w-1/2 mx-auto">
-            <button onClick={() => action(date) } className=" bg-yellow-300 hover:bg-yellow-400 text-white font-bold rounded w-full h-8 mt-3">
+            <button onClick={() => action(minMoney,maxMoney,minCapacity,maxCapacity,date) } className=" bg-yellow-300 hover:bg-yellow-400 text-white font-bold rounded w-full h-8 mt-3">
               検索
             </button>
           </div>

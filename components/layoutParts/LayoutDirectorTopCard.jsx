@@ -4,7 +4,7 @@
 //maxCapacity   => 劇場のキャパシティ
 //usageAmount   => １週間の利用料金
 //area          => 劇場の所在地があるエリア
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import cssClass from "./Layout.module.css";
 import { useRouter } from "next/router";

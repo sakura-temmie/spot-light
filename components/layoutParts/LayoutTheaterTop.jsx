@@ -41,9 +41,20 @@ export default function LayoutTheaterTop() {
       }
     };
 
-    const getProfile2 = async (date) => {
-      console.log(date);
+    //検索後に取得するプロフィール
+  const getProfile2 = async (
+    minMoney,
+    maxMoney,
+    minCapacity,
+    maxCapacity,
+    areaNum,
+    date
+  ) => {
       const freeSchedule = String(date);
+      const lowerLimitPrice = String(minMoney);
+      const upperLimitPrice = String(maxMoney);
+      const lowerLimitCapacity = String(minCapacity);
+      const upperLimitCapacity = String(maxCapacity);
 
       //クッキーの取得
       // const accessToken = await new Cookie().get("access_token")
@@ -59,6 +70,10 @@ export default function LayoutTheaterTop() {
           body: JSON.stringify({
             token: accessToken,
             free_schedule: freeSchedule,
+            lower_limit_price: lowerLimitPrice,
+            upper_limit_price: upperLimitPrice,
+            lower_limit_capacity: lowerLimitCapacity,
+            upper_limit_capacity: upperLimitCapacity,
           }),
         })
         .then((res) => {
